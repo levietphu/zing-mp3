@@ -17,6 +17,7 @@ import { VideoContext } from "../../contexts/VideoContextProvider";
 const Home = () => {
   const { dataHome, loader, loader2, lazyLoading } = useContext(HomeContext);
   const { checkMiniVideo } = useContext(VideoContext);
+  // console.log(dataHome);
 
   return (
     <MainLayout>
@@ -102,7 +103,7 @@ const Home = () => {
                 <span>XONE's CORNER</span>
               </div>
               <div className="list__playlist__selection">
-                {dataHome[11].items.map((item, index) => {
+                {dataHome[13].items.map((item, index) => {
                   if (index <= 4) {
                     return (
                       <ItemPlayList
@@ -120,15 +121,17 @@ const Home = () => {
               <div>ha</div>
             ) : (
               <>
-                <div className="audio__selection">
-                  <div className="header__playlist__selection">
-                    <span>Radio Nổi Bật</span>
-                    <div className="btn__view__all">
-                      TẤT CẢ <i className="fa-solid fa-angle-right"></i>
+                {dataHome[14].items && (
+                  <div className="audio__selection">
+                    <div className="header__playlist__selection">
+                      <span>Radio Nổi Bật</span>
+                      <div className="btn__view__all">
+                        TẤT CẢ <i className="fa-solid fa-angle-right"></i>
+                      </div>
                     </div>
+                    <Radio playList={dataHome[14]} />
                   </div>
-                  {dataHome[5].items && <Radio playList={dataHome[5]} />}
-                </div>
+                )}
 
                 <div className="playlist__selection">
                   <div className="header__playlist__selection">
@@ -215,16 +218,16 @@ const Home = () => {
                   <SingerCarousel />
                 </div>
 
-                <div className="playlist__selection">
-                  <div className="header__playlist__selection">
-                    <span>Top 100</span>
-                    <div className="btn__view__all">
-                      TẤT CẢ <i className="fa-solid fa-angle-right"></i>
+                {dataHome[10].items && (
+                  <div className="playlist__selection">
+                    <div className="header__playlist__selection">
+                      <span>Top 100</span>
+                      <div className="btn__view__all">
+                        TẤT CẢ <i className="fa-solid fa-angle-right"></i>
+                      </div>
                     </div>
-                  </div>
-                  <div className="list__playlist__selection">
-                    {dataHome[9].items &&
-                      dataHome[9].items.map((item, index) => {
+                    <div className="list__playlist__selection">
+                      {dataHome[10].items.map((item, index) => {
                         if (index <= 4) {
                           return (
                             <ItemPlayList
@@ -235,10 +238,11 @@ const Home = () => {
                           );
                         }
                       })}
+                    </div>
                   </div>
-                </div>
+                )}
 
-                <EventChanel playList={dataHome[10]} />
+                {dataHome[15].items && <EventChanel playList={dataHome[15]} />}
 
                 <div className="playlist__selection">
                   <div className="header__playlist__selection">
@@ -276,15 +280,14 @@ const Home = () => {
                       })}
                   </div>
                 </div>
-
-                <div className="playlist__selection">
-                  <div className="header__playlist__selection">
-                    <span>nghệ sĩ Zing Choice</span>
-                  </div>
-                  <div className="list__playlist__selection">
-                    <div className="favorite__artist">
-                      {dataHome[13] &&
-                        dataHome[13].items.map((item, index) => {
+                {dataHome[13] && dataHome[13] && (
+                  <div className="playlist__selection">
+                    <div className="header__playlist__selection">
+                      <span>nghệ sĩ Zing Choice</span>
+                    </div>
+                    <div className="list__playlist__selection">
+                      <div className="favorite__artist">
+                        {dataHome[13].items.map((item, index) => {
                           if (index < 3) {
                             return (
                               <ZingChoice
@@ -295,9 +298,10 @@ const Home = () => {
                             );
                           }
                         })}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
 
                 <div className="music__partner">
                   <div className="title__music__partner">đối tác âm nhạc</div>

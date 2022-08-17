@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const EventChanel = ({ playList }) => {
   const [isActive, setIsActive] = useState(false);
+  console.log(playList);
 
   return (
     <div className="playlist__selection">
@@ -53,6 +54,7 @@ const EventChanel = ({ playList }) => {
                       <div className="subtitle__follow">Lượt quan tâm</div>
                       <div className="user__follow">
                         <div className="count__follow">+{item.totalFollow}</div>
+
                         {item?.followers.map((i) => {
                           return (
                             <div key={i.id} className="user__item">
