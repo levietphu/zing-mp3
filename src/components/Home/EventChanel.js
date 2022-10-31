@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 const EventChanel = ({ playList }) => {
   const [isActive, setIsActive] = useState(false);
-  console.log(playList);
-
   return (
     <div className="playlist__selection">
       <div className="header__playlist__selection">

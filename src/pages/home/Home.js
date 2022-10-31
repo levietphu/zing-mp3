@@ -17,7 +17,6 @@ import { VideoContext } from "../../contexts/VideoContextProvider";
 const Home = () => {
   const { dataHome, loader, loader2, lazyLoading } = useContext(HomeContext);
   const { checkMiniVideo } = useContext(VideoContext);
-  // console.log(dataHome);
 
   return (
     <MainLayout>
@@ -38,84 +37,92 @@ const Home = () => {
           <div className="gallery">
             <GalleryCarousel banner={dataHome[0]} />
 
-            <div className="playlist__selection">
-              <div className="header__playlist__selection">
-                <span>Gần Đây</span>
-                <div className="btn__view__all">
-                  TẤT CẢ <i className="fa-solid fa-angle-right"></i>
+            {dataHome[5].items && (
+              <div className="playlist__selection">
+                <div className="header__playlist__selection">
+                  <span>Gần Đây</span>
+                  <div className="btn__view__all">
+                    TẤT CẢ <i className="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+                <div className="list__playlist__selection">
+                  {dataHome[5].items.map((item, index) => {
+                    if (index <= 4) {
+                      return (
+                        <ItemPlayList
+                          playList={item}
+                          key={index}
+                          checkTitle={true}
+                        />
+                      );
+                    }
+                  })}
                 </div>
               </div>
-              <div className="list__playlist__selection">
-                {dataHome[5].items.map((item, index) => {
-                  if (index <= 4) {
-                    return (
-                      <ItemPlayList
-                        playList={item}
-                        key={index}
-                        checkTitle={true}
-                      />
-                    );
-                  }
-                })}
-              </div>
-            </div>
+            )}
 
-            <div className="playlist__selection">
-              <div className="header__playlist__selection">
-                <span>Có Thể Bạn Muốn Nghe</span>
+            {dataHome[11].items && (
+              <div className="playlist__selection">
+                <div className="header__playlist__selection">
+                  <span>Có Thể Bạn Muốn Nghe</span>
+                </div>
+                <div className="list__playlist__selection">
+                  {dataHome[11].items.map((item, index) => {
+                    if (index <= 4) {
+                      return (
+                        <ItemPlayList
+                          playList={item}
+                          key={index}
+                          checkTitle={false}
+                        />
+                      );
+                    }
+                  })}
+                </div>
               </div>
-              <div className="list__playlist__selection">
-                {dataHome[11].items.map((item, index) => {
-                  if (index <= 4) {
-                    return (
-                      <ItemPlayList
-                        playList={item}
-                        key={index}
-                        checkTitle={false}
-                      />
-                    );
-                  }
-                })}
-              </div>
-            </div>
+            )}
 
-            <div className="playlist__selection">
-              <div className="header__playlist__selection">
-                <span>Lựa Chọn Hôm Nay</span>
+            {dataHome[4].items && (
+              <div className="playlist__selection">
+                <div className="header__playlist__selection">
+                  <span>Lựa Chọn Hôm Nay</span>
+                </div>
+                <div className="list__playlist__selection">
+                  {dataHome[4].items.map((item, index) => {
+                    if (index <= 4) {
+                      return (
+                        <ItemPlayList
+                          playList={item}
+                          key={index}
+                          checkTitle={true}
+                        />
+                      );
+                    }
+                  })}
+                </div>
               </div>
-              <div className="list__playlist__selection">
-                {dataHome[4].items.map((item, index) => {
-                  if (index <= 4) {
-                    return (
-                      <ItemPlayList
-                        playList={item}
-                        key={index}
-                        checkTitle={true}
-                      />
-                    );
-                  }
-                })}
-              </div>
-            </div>
+            )}
 
-            <div className="playlist__selection">
-              <div className="header__playlist__selection">
-                <span>XONE's CORNER</span>
+            {dataHome[13].items && (
+              <div className="playlist__selection">
+                <div className="header__playlist__selection">
+                  <span>XONE's CORNER</span>
+                </div>
+                <div className="list__playlist__selection">
+                  {dataHome[13].items.map((item, index) => {
+                    if (index <= 4) {
+                      return (
+                        <ItemPlayList
+                          playList={item}
+                          key={index}
+                          checkTitle={true}
+                        />
+                      );
+                    }
+                  })}
+                </div>
               </div>
-              <div className="list__playlist__selection">
-                {dataHome[13].items.map((item, index) => {
-                  if (index <= 4) {
-                    return (
-                      <ItemPlayList
-                        playList={item}
-                        key={index}
-                        checkTitle={true}
-                      />
-                    );
-                  }
-                })}
-              </div>
-            </div>
+            )}
 
             {loader2 ? (
               <div>ha</div>
@@ -133,26 +140,26 @@ const Home = () => {
                   </div>
                 )}
 
-                <div className="playlist__selection">
-                  <div className="header__playlist__selection">
-                    <div className="fan__playlist__selection">
-                      <a href="#" className="fan__playlist__img">
-                        <img
-                          src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/b/d/e/c/bdec30800a424a4ab622294453dd31c7.jpg"
-                          alt=""
-                        />
-                      </a>
-                      <div className="fan__playlist__subtitle">
-                        <span>Dành Cho fan</span>
-                        <div className="name__singer__fan">
-                          <a href="#">Anh Quân Idol</a>
+                {dataHome[5].items && (
+                  <div className="playlist__selection">
+                    <div className="header__playlist__selection">
+                      <div className="fan__playlist__selection">
+                        <a href="#" className="fan__playlist__img">
+                          <img
+                            src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/b/d/e/c/bdec30800a424a4ab622294453dd31c7.jpg"
+                            alt=""
+                          />
+                        </a>
+                        <div className="fan__playlist__subtitle">
+                          <span>Dành Cho fan</span>
+                          <div className="name__singer__fan">
+                            <a href="#">Anh Quân Idol</a>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="list__playlist__selection">
-                    {dataHome[3].items &&
-                      dataHome[3].items.map((item, index) => {
+                    <div className="list__playlist__selection">
+                      {dataHome[5].items.map((item, index) => {
                         if (index <= 4) {
                           return (
                             <ItemPlayList
@@ -163,16 +170,17 @@ const Home = () => {
                           );
                         }
                       })}
+                    </div>
                   </div>
-                </div>
+                )}
 
-                <div className="playlist__selection">
-                  <div className="header__playlist__selection">
-                    <span>Nhạc Mới Mỗi Ngày</span>
-                  </div>
-                  <div className="list__playlist__selection">
-                    {dataHome[6].items &&
-                      dataHome[6].items.map((item, index) => {
+                {dataHome[6].items && (
+                  <div className="playlist__selection">
+                    <div className="header__playlist__selection">
+                      <span>Nhạc Mới Mỗi Ngày</span>
+                    </div>
+                    <div className="list__playlist__selection">
+                      {dataHome[6].items.map((item, index) => {
                         if (index <= 4) {
                           return (
                             <ItemPlayList
@@ -183,8 +191,9 @@ const Home = () => {
                           );
                         }
                       })}
+                    </div>
                   </div>
-                </div>
+                )}
                 {dataHome[7].items && <ZingChart playList={dataHome[7]} />}
 
                 <div className="option__zingchart">
@@ -280,7 +289,7 @@ const Home = () => {
                       })}
                   </div>
                 </div>
-                {dataHome[13] && dataHome[13] && (
+                {dataHome[13].items && (
                   <div className="playlist__selection">
                     <div className="header__playlist__selection">
                       <span>nghệ sĩ Zing Choice</span>

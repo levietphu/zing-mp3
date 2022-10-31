@@ -25,13 +25,14 @@ const ZingChoice = ({ item, index }) => {
           </div>
           <div className="title__mix__content">{item.artistsNames}</div>
           <div className="thumbs__mix__content">
-            {/* {item.song.items.map((a, index) => {
-              return (
-                <div key={index} className="item__thumb__mix">
-                  <img src={a.thumbnail} alt="" />
-                </div>
-              );
-            })} */}
+            {item.song &&
+              item.song.items.map((a, index) => {
+                return (
+                  <div key={index} className="item__thumb__mix">
+                    <img src={a.thumbnail} alt="" />
+                  </div>
+                );
+              })}
           </div>
         </div>
       </a>
