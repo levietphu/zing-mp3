@@ -18,6 +18,8 @@ const Home = () => {
   const { dataHome, loader, loader2, lazyLoading } = useContext(HomeContext);
   const { checkMiniVideo } = useContext(VideoContext);
 
+  console.log(dataHome);
+
   return (
     <MainLayout>
       {loader ? (
@@ -82,13 +84,13 @@ const Home = () => {
               </div>
             )}
 
-            {dataHome[4].items && (
+            {dataHome[5].items && (
               <div className="playlist__selection">
                 <div className="header__playlist__selection">
                   <span>Lựa Chọn Hôm Nay</span>
                 </div>
                 <div className="list__playlist__selection">
-                  {dataHome[4].items.map((item, index) => {
+                  {dataHome[5].items.map((item, index) => {
                     if (index <= 4) {
                       return (
                         <ItemPlayList
@@ -128,7 +130,7 @@ const Home = () => {
               <div>ha</div>
             ) : (
               <>
-                {dataHome[14].items && (
+                {dataHome[6].items && (
                   <div className="audio__selection">
                     <div className="header__playlist__selection">
                       <span>Radio Nổi Bật</span>
@@ -136,7 +138,7 @@ const Home = () => {
                         TẤT CẢ <i className="fa-solid fa-angle-right"></i>
                       </div>
                     </div>
-                    <Radio playList={dataHome[14]} />
+                    <Radio playList={dataHome[6]} />
                   </div>
                 )}
 
@@ -194,7 +196,7 @@ const Home = () => {
                     </div>
                   </div>
                 )}
-                {dataHome[7].items && <ZingChart playList={dataHome[7]} />}
+                {dataHome[8].items && <ZingChart playList={dataHome[8]} />}
 
                 <div className="option__zingchart">
                   <div className="item__option__zingchart">
@@ -251,7 +253,7 @@ const Home = () => {
                   </div>
                 )}
 
-                {dataHome[15].items && <EventChanel playList={dataHome[15]} />}
+                {dataHome[13].items && <EventChanel playList={dataHome[13]} />}
 
                 <div className="playlist__selection">
                   <div className="header__playlist__selection">
