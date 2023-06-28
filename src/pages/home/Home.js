@@ -18,8 +18,6 @@ const Home = () => {
   const { dataHome, loader, loader2, lazyLoading } = useContext(HomeContext);
   const { checkMiniVideo } = useContext(VideoContext);
 
-  console.log(dataHome);
-
   return (
     <MainLayout>
       {loader ? (
